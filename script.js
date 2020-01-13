@@ -43,13 +43,20 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
+function getRandomQuote (array){
+    let randomQuote = array[Math.floor(Math.random() * array.length)];
 
+    return randomQuote;
+}
 
-
+console.log(getRandomQuote(quotes));
 /***
  * `printQuote` function
 ***/
+function printQuote(){
 
+
+}
 
 
 /***
