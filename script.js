@@ -7,10 +7,14 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
+  
+
 /*** 
  * `quotes` array 
 ***/
-let quotes = [
+var message = '';
+
+var quotes = [
     {
         quote:  'Failure is a feeling long before it becomes an actual result.',
         source: 'Michelle Obama',
@@ -19,11 +23,15 @@ let quotes = [
     },
     {
         quote:  'Teaching is the highest form of understanding',
-        source: 'Aristotle'
+        source: 'Aristotle',
+        citation: "",
+        year: ""
     },
     {
         quote:  'The only way to know is to live, learn, and grow.',
-        source: 'Lauryn Hill'
+        source: 'Lauryn Hill',
+        citation: "",
+        year: ""
     },
     {
         quote:  'Without music, life would be a mistake.',
@@ -36,27 +44,48 @@ let quotes = [
         source: 'Jimi Hendrix',
         citation: 'Jimi Hendrix - Axis: Bold as Love',
         year: 1989
-    }
+    },
 ]
 
+function print(){
+    var outputDiv = document.getElementById('quote-box');
+    outputDiv.innerHTML = message;
+}
 
 /***
  * `getRandomQuote` function
 ***/
-function getRandomQuote (array){
-    let randomQuote = array[Math.floor(Math.random() * array.length)];
+function getRandomQuote (){
+    let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
     return randomQuote;
 }
 
-console.log(getRandomQuote(quotes));
+//console.log(getRandomQuote(quotes));
 /***
  * `printQuote` function
 ***/
 function printQuote(){
-
-
+    var quotes = getRandomQuote();
+    message = '<p class="quote">' + quotes.quote + '</p>'
+    message += '<p class="source">' + quotes.source;
+        if (quotes.citation){
+             message += '<span class="citation">' + quotes.citation + '</span>';
+        } else {
+             message += '';
+        }
+        if (quotes.year){
+            message += '<span class="year">' + quotes.year + '</span>';
+        } else {
+            message += '';
+        }
+            message += '</p>';
+                 
+        print(message);
+               
 }
+
+
 
 
 /***
