@@ -59,9 +59,7 @@ function getRandomQuote (){
 }
 
 //added setInterval method to print a new quote every 25 seconds
-document.getElementById('load-quote').addEventListener("click", ()=>{
-setInterval(printQuote, 25000);
-});
+var timer = window.setInterval(printQuote, 25000);
 
 //'RandombackgroundColor' function to generate a new background color
 function RandombackgroundColor(){
@@ -97,7 +95,6 @@ function printQuote(){
 
         //call RandombackgroundColor function to get a random color with every new quote
         RandombackgroundColor();
-        document.getElementById('load-quote').addEventListener("click", RandombackgroundColor, false);
 }
 
  //click event listener for the print quote button
