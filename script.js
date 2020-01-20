@@ -26,7 +26,8 @@ var quotes = [
         quote:  'The only way to know is to live, learn, and grow.',
         source: 'Lauryn Hill',
         citation: "",
-        year: "Music"
+        year: "",
+        tags: "Music"
     },
     {
         quote:  'Without music, life would be a mistake.',
