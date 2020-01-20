@@ -95,7 +95,7 @@ function printQuote(){
                  
         print(message);
 
-        //call randombackground function to get a random color with every new quote
+        //call RandombackgroundColor function to get a random color with every new quote
         RandombackgroundColor();
         document.getElementById('load-quote').addEventListener("click", RandombackgroundColor, false);
 }
