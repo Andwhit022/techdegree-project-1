@@ -63,6 +63,14 @@ document.getElementById('load-quote').addEventListener("click", ()=>{
 setInterval(printQuote, 25000);
 });
 
+//'RandombackgroundColor' function to generate a new background color
+function RandombackgroundColor(){
+    //this method was adapted from https://dev.to/akhil_001/generating-random-color-with-single-line-of-js-code-fhj
+    var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.background = randomColor;
+    return randomColor;
+}
+
  //`printQuote` function to print randomly selected object and print it to the screen
 function printQuote(){ 
     var quotes = getRandomQuote();
@@ -86,7 +94,10 @@ function printQuote(){
             message += '</p>';
                  
         print(message);
-        
+
+        //call randombackground function to get a random color with every new quote
+        RandombackgroundColor();
+        document.getElementById('load-quote').addEventListener("click", RandombackgroundColor, false);
 }
 
  //click event listener for the print quote button
