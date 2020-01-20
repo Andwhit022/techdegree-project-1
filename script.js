@@ -9,11 +9,10 @@ project 1 - A Random Quote Generator
 
   
 
-/*** 
- * `quotes` array 
-***/
+//variable to hold output to the screen
 var message = '';
 
+//Array of objects to hold quote, source, citation, and year
 var quotes = [
     {
         quote:  'Failure is a feeling long before it becomes an actual result.',
@@ -22,9 +21,9 @@ var quotes = [
         year: 2018
     },
     {
-        quote:  'Teaching is the highest form of understanding',
-        source: 'Aristotle',
-        citation: "",
+        quote:  'People Say Nothing Is Impossible, But I Do Nothing Every Day',
+        source: 'A.A Milne',
+        citation: "Winne-the-Pooh",
         year: ""
     },
     {
@@ -47,13 +46,14 @@ var quotes = [
     },
 ]
 
+//Function to target the div with the id 'quote-box'
 function print(){
     var outputDiv = document.getElementById('quote-box');
     outputDiv.innerHTML = message;
 }
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function to generate a random object from quote array and hold it in randomQuote variable
 ***/
 function getRandomQuote (){
     let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -61,11 +61,15 @@ function getRandomQuote (){
     return randomQuote;
 }
 
-//console.log(getRandomQuote(quotes));
+//added setInterval method to print a new quote every 25 seconds
+document.getElementById('load-quote').addEventListener("click", ()=>{
+setInterval(printQuote, 25000);
+});
+
 /***
- * `printQuote` function
+ * `printQuote` function to print randomly selected object and print it to the screen
 ***/
-function printQuote(){
+function printQuote(){ 
     var quotes = getRandomQuote();
     message = '<p class="quote">' + quotes.quote + '</p>'
     message += '<p class="source">' + quotes.source;
@@ -82,11 +86,8 @@ function printQuote(){
             message += '</p>';
                  
         print(message);
-               
+        
 }
-
-
-
 
 /***
  * click event listener for the print quote button
