@@ -3,15 +3,8 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-  
-
 //variable to hold output to the screen
 var message = '';
-
 
 //Array of objects to hold quote, source, citation, and year
 var quotes = [
@@ -51,33 +44,25 @@ var quotes = [
     },
 ]
 
-
 //Function to target the div with the id 'quote-box'
 function print(){
     var outputDiv = document.getElementById('quote-box');
     outputDiv.innerHTML = message;
 }
 
-
-/***
- * `getRandomQuote` function to generate a random object from quote array and hold it in randomQuote variable
-***/
+//`getRandomQuote` function to generate a random object from quote array and hold it in randomQuote variable
 function getRandomQuote (){
     let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
     return randomQuote;
 }
 
-
 //added setInterval method to print a new quote every 25 seconds
 document.getElementById('load-quote').addEventListener("click", ()=>{
 setInterval(printQuote, 25000);
 });
 
-
-/***
- * `printQuote` function to print randomly selected object and print it to the screen
-***/
+ //`printQuote` function to print randomly selected object and print it to the screen
 function printQuote(){ 
     var quotes = getRandomQuote();
     message = '<p class="quote">' + quotes.quote + '</p>'
@@ -103,10 +88,5 @@ function printQuote(){
         
 }
 
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
-
+ //click event listener for the print quote button
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
